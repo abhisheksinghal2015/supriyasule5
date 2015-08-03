@@ -3,7 +3,7 @@ from django import forms
 from django.http import HttpResponse,HttpResponseRedirect
 import datetime
 from rango.forms import ComplaintForm,ViewForm,LoginForm
-from rango.models import Complaint,office_staff,offices,status,taluka,comp_type
+from rango.models import Complaint,office_staff,offices,status,taluka,comp_type,village
 from django.contrib.auth import authenticate, login,logout
 from django.db.models import Q
 from django.utils.translation import ugettext
@@ -58,7 +58,7 @@ def editview(request):
         c.fname = request.POST.get('fname')
         c.lname = request.POST.get('lname')
         c.address = request.POST.get('address')
-        c.village = request.POST.get('village')
+        c.village = village.objects.get(village_name = request.POST.get('village'))
         c.taluka = taluka.objects.get(t=request.POST.get('taluka'))
         c.pin = request.POST.get('pin')
         c.email = request.POST.get('email')
@@ -67,7 +67,7 @@ def editview(request):
         c.ph_no = request.POST.get('ph_no')
         c.complaint_type = comp_type.objects.get(type=request.POST.get('complaint_type'))
         c.descrip = request.POST.get('descrip')
-        c.acc_person= office_staff.objects.get(name='acc_person')
+        c.acc_person= office_staff.objects.get(name=request.POST.get('acc_person'))
         c.status = status.objects.get(complaint_status=request.POST.get('status'))
         c.status_remarks = request.POST.get('status_remarks')
         c.save()
@@ -136,7 +136,7 @@ def view_complaint(request):
                     if request.POST.get('acc_person')=='':
                         pass
                     else:
-                        complaints = complaints.filter(acc_person=request.POST.get('acc_person'))
+                        complaints = complaints.filter(acc_person=office_staff.objects.get(id=request.POST.get('acc_person')))
                     print request.POST
                     count=complaints.count()
                     dict = {'complaints':complaints,'form':form,'user_office':user_office,'count':count}
@@ -188,6 +188,7 @@ def add_complaint(request):
         return render(request, 'add_form/add_form.html',{'form':form} )
     else:
      render_to_response("Not logged in.")
+
 def confirmview(request):
 
     form=ComplaintForm(request.POST,request.FILES)
