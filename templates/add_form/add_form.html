@@ -79,7 +79,7 @@ padding-bottom: 10px;
   width: 50%;
   margin: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 24px;
+  font-size: 12px;
   font-weight: normal;
   border: none;
   border-width: 0px !important;
@@ -122,6 +122,7 @@ padding-bottom: 10px;
 }
 .supernova {
   background-color: #775648;
+
   background-color: #e86d49;
 }
 .supernova body {
@@ -173,6 +174,7 @@ padding-bottom: 10px;
 .supernova .form-all,
 .form-all {
   background-color: #775648;
+
   border: 1px solid transparent;
 }
 .form-header-group {
@@ -562,11 +564,11 @@ padding-bottom: 10px;
 }
 .supernova {
   background-image: none;
-   background-image: url('{% static "images/Taramati-Baradari.jpg" %}'), url('{% static "images/Taramati-Baradari.jpg" %}');
+   background-image: url('{% static "images/form.jpg" %}'), url('{% static "images/form.jpg" %}');
 }
 #stage {
   background-image: none;
-  background-image: url('{% static "images/Taramati-Baradari.jpg" %}'), url('{% static "images/Taramati-Baradari.jpg" %}');
+  background-image: url('{% static "images/form.jpg" %}'), url('{% static "images/form.jpg" %}');
 }
 /* | */
 .form-all {
@@ -698,7 +700,7 @@ h2 ~ .form-subHeader {
   clear: both;
 }
 .form-sub-label-container {
-    margin-bottom: ;4px;
+    margin-bottom: 4px;
     padding-bottom: 5px;
   margin-right: 0;
   float: left;
@@ -1250,6 +1252,40 @@ li[data-type="control_image"] img {
     margin: 0 5%;
   }
 }
+    .submit-button1{
+        font-size: 1.15em;
+        margin-right:2%;
+  float: left;
+  padding: 12px 18px;
+  display: block;
+  width: auto;
+        border-radius: 4px 4px 4px 4px;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-width: 0px !important;
+        background-color: #e09c5f;
+        color: white;
+  border-style: solid !important;
+    }
+    .submit-button{
+        padding-left: 50px;
+        border-radius: 4px 4px 4px 4px;
+        color: white;
+        font-size: 1.15em;
+        background-color: #e09c5f;
+  padding: 12px 18px;
+  display: block;
+  width: auto;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-width: 0px !important;
+  border-style: solid !important;
+    }
 /* | */
 
 /*__INSPECT_SEPERATOR__*/
@@ -1265,7 +1301,7 @@ li[data-type="control_image"] img {
   {% csrf_token %}
   <div class="form-all">
     <!--<link type="text/css" rel="stylesheet" media="all" href="https://d2g9qbzl5h49rh.cloudfront.net/wizards/languageWizard/custom-dropdown/css/lang-dd.css?3.3.7701" />-->
-    <div class="cont">
+  <div>  <div class="cont">
       <input type="text" id="input_language" name="input_language" style="display:none" />
       <!--<div class="language-dd" id="langDd">
         <div class="dd-placeholder lang-emp">
@@ -1290,28 +1326,17 @@ li[data-type="control_image"] img {
         <div class="form-header-group">
           <div class="header-text httac htvam">
             <h2 id="header_57" class="form-header">
-              Register your Complaint (आपली तक्रार नोंदणी)
+              Register your Complaint ( तक्रार नोंदणी)
             </h2>
 
           </div>
         </div>
       </li>
       
-      <!--<li class="form-line jf-required" data-type="control_datetime" id="id_50">
-        <label class="form-label form-label-left" id="label_50" for="">
-          Complaint Date
-          <span class="form-required">
-            *
-          </span>
-        </label>
-        <div id="cid_50" class="form-input jf-required">
 
-                    
-        </div>
-      </li> -->
-      
       <li class="form-line jf-required" data-type="control_fullname" id="id_4">
-        <label class="form-label form-label-left" id="label_4" for="input_4">
+
+          <label class="form-label form-label-left" id="label_4" for="input_4">
             Name of Complainant (तक्रार नाव)
           <span class="form-required">
             *
@@ -1319,11 +1344,12 @@ li[data-type="control_image"] img {
         </label>
         <div id="cid_4" class="form-input jf-required" >
 
-         <span class="form-sub-label-container1" style="vertical-align: top">
+
           <!--  <input placeholder="First Name " class="form-textbox validate[required]" type="text" size="10" name="q4_complainantName[first]" id="first_4" />  -->
-             {{form.fname}}
-            
-          </span>
+
+            <span> {{form.fname}}</span> <span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.fname.errors }}</span>
+
+
        <!--   <span class="form-sub-label-container1" style="vertical-align: top">
 
             <label class="form-sub-label form-label-top" for="" id="sublabel_last" style="min-height: 13px;"> Last Name </label>
@@ -1340,7 +1366,7 @@ li[data-type="control_image"] img {
         </label>
         <div id="cid_45" class="form-input jf-required">
 
-          {{form.descrip}}
+          {{form.descrip}}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.descrip.errors }}</span>
         <!-- <textarea id="input_45" class="form-textarea validate[required]" name="q45_description" cols="40" rows="6"></textarea> -->
         </div>
       </li>
@@ -1353,7 +1379,7 @@ li[data-type="control_image"] img {
           </span>
         </label>
         <div id="cid_46" class="form-input jf-required">
-          {{form.complaint_type}}
+           {{form.complaint_type}}<span style="float:left;color: #ff5f17;padding-right: 5px;margin-right: 10px;">{{ form.complaint_type.errors }}</span>
         <!--  <select class="form-dropdown validate[required]" style="width:150px" id="input_46" name="q46_complaintType">
             <option value=""> Complaint </option>
             <option value="Road related"> Road related </option>
@@ -1374,7 +1400,7 @@ li[data-type="control_image"] img {
           </span>
         </label>
         <div id="cid_24" class="form-input ">
-              {{ form.birth_date }}
+               {{form.birth_date }}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.birth_date.errors }}</span>
         </div>
       </li>
 
@@ -1387,7 +1413,7 @@ li[data-type="control_image"] img {
           </span>
         </label>
         <div id="cid_3" class="form-input jf-required">
-          {{form.gender}}
+           {{form.gender}}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.gender.errors }}</span>
         </div>
       </li>
      
@@ -1399,7 +1425,7 @@ li[data-type="control_image"] img {
           </span>
         </label>
         <div id="cid_49" class="form-input jf-required">
-         {{form.mob}}
+         <span style=""> {{form.mob}}</span><span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.mob.errors }}</span>
         </div>
       </li>
 
@@ -1407,7 +1433,7 @@ li[data-type="control_image"] img {
         <label class="form-label form-label-left form-label-auto" id="label_59" for="{{form.email.id_for_label}}"> E-mail (ई-मेल) </label>
         <div id="cid_59" class="form-input">
          <!-- <input type="email" class=" form-textbox validate[Email]" id="input_59" name="q59_email" size="30" value="" /> -->
-         {{form.email}}
+         {{form.email}}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.email.errors }}</span>
         </div>
       </li>
         <li class="form-line" data-type="control_email" id="id_590">
@@ -1419,13 +1445,13 @@ li[data-type="control_image"] img {
         </label>
         <div id="cid_59" class="form-input">
          <!-- <input type="email" class=" form-textbox validate[Email]" id="input_59" name="q59_email" size="30" value="" /> -->
-         {{form.village}}
+         {{form.village}}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.taluka.errors }}</span>
         </div>
       </li>
       <li class="form-line jf-required" data-type="control_address" id="id_23">
         <label class="form-label form-label-left form-label-auto" id="label_59" for="{{form.taluka.id_for_label}}">&nbsp; </label>
         <div id="cid_59" class="form-input">
-         {{form.taluka}}
+         {{form.taluka}}<span style="float:right;color: #ff5f17;padding-right: 15px;">{{ form.taluka.errors }}</span>
         </div>
         <!--<div id="cid_23" class="form-input jf-required">
           <table summary="" undefined class="form-address-table" border="0" cellpadding="0" cellspacing="0" style="float: right;">
@@ -1464,24 +1490,24 @@ li[data-type="control_image"] img {
 
       <li class="form-line jf-required" data-type="control_textbox" id="id_54">
         <label class="form-label form-label-left" id="label_54" for="{{form.complaint_taker.id_for_label}}">
-          Complaint taker (तक्रार सर्वाधिक)
+          Complaint taker (तक्रार स्वीकारणारा )
           <span class="form-required">
             *
           </span>
         </label>
         <div id="cid_54" class="form-input jf-required">
-          {{form.complaint_taker}}
+          {{form.complaint_taker}}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.complaint_taker.errors }}</span>
         </div>
       </li>
       <li class="form-line jf-required" data-type="control_dropdown" id="id_51">
         <label class="form-label form-label-left" id="label_51" for="{{form.office.id_for_label}}">
-          Office (कार्यालय)
+          Concerned Office (संबंधित कार्यालय)
           <span class="form-required">
             *
           </span>
         </label>
         <div id="cid_51" class="form-input jf-required">
-          {{form.office}}
+          {{form.office}}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.office.errors }}</span>
         </div>
       </li>
       
@@ -1493,13 +1519,15 @@ li[data-type="control_image"] img {
           </span>
         </label>
         <div id="cid_52" class="form-input jf-required">
-            <span style="width:120px">{{form.acc_person}}</span>
+            <span style="width:120px">{{form.acc_person}}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.acc_person.errors }}</span></span>
 
         </div>
       </li>
       <li class="form-line radio3" data-type="control_radio" id="id_55">
         <label class="radio3 form-label form-label-left form-label-auto " id="label_55" for="{{ form.status.id_for_label }}"> Status (स्थिती) </label>
-        <div id="cid_55" class="radio2 " data-columnCount="3">
+             <span style="color: #ff5f17;padding-right: 15px;">{{ form.status.errors }}<br></span>
+          <div id="cid_55" class="radio2 " data-columnCount="3">
+
             {% for radio in form.status %}
                 <span class="radio">{{ radio.tag }}</span>
                 <label class="radio1" for="{{ radio.id_for_label }}">
@@ -1507,17 +1535,18 @@ li[data-type="control_image"] img {
 
                  </label>
             {% endfor %}
+
         </div>
       </li>
       <li class="form-line" data-type="control_textbox" id="id_58">
         <label class="form-label form-label-left form-label-auto" id="label_58" for="{{form.status_remarks.id_for_label}}"> Status remarks (स्थिती निर्णयासह)</label>
         <div sid="cid_58" class="form-input">
-          {{form.status_remarks}}
+          {{form.status_remarks}}<span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.status_remarks.errors }}</span>
         </div>
       </li>
       <li class="form-line" data-type="control_fileupload" id="id_56">
         <label class="form-label form-label-left" id="label_56" for="{{ form.docfile.id_for_label }}"> {{ form.docfile.label_tag }} {{ form.docfile.help_text }} (फाइल अपलोड करा )</label>
-
+            <span style="float:left;color: #ff5f17;padding-right: 15px;">{{ form.docfile.errors }}</span>
             {{ form.docfile }}
           <!--<div id="cid_56" class="form-input ">
           <div class="qq-uploader-buttonText-value"> bata....vo koi baat nhi....iska matlab ye hai ki form field kaam nhi kar rha...
@@ -1529,23 +1558,19 @@ li[data-type="control_image"] img {
 
 
       <li class="form-line form-line-column form-col-1" data-type="control_button" id="id_20">
-        <div id="cid_20" class="form-input1">
-          <div style="text-align:left" class="form-buttons-wrapper">
-            <button id="input_20" type="submit" class="form-submit-button">
-              Submit Complaint (नोंदणी)
+        <button id="input_20" type="submit" class="submit-button1">
+              Submit Complaint (सादर करा)
             </button>
-          </div>
-        </div>
-      </li>
-      <li class="form-line form-line-column form-col-2" data-type="control_button" id="id_19">
-        <div id="cid_19" class="form-input1">
-          <div style="text-align:right" class="form-buttons-wrapper">
-            <button id="input_19" type="submit" class="form-submit-button">
+           <button id="input_19" type="submit" class="submit-button">
               Clear Fields (साफ करा फील्ड)
             </button>
+          <div id="cid_20" class="form-input1">
+          <div style="text-align:left" class="form-buttons-wrapper">
+
           </div>
         </div>
       </li>
+
       <li class="form-line" data-type="control_text" id="id_53">
           <br><br><br>
         <div id="cid_53" class="form-input-wide">
@@ -1559,7 +1584,7 @@ li[data-type="control_image"] img {
         <input type="text" name="website" value="" />
       </li>
     </ul>
-  </div>
+  </div></div>
   <input type="hidden" id="simple_spc" name="simple_spc" value="51812218262449" />
   <script type="text/javascript">
   document.getElementById("si" + "mple" + "_spc").value = "51812218262449-51812218262449";
