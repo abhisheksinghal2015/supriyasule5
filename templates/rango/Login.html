@@ -1,6 +1,8 @@
 <!Doctype HTML>
 <html>
 <head>
+    {% load staticfiles %}
+    <link rel="icon" type="image/jpg" href="{% static "images/nationalist_congress_party_7.jpg" %}">
     <title>Login</title>
 	<style>
 #body{
@@ -10,14 +12,14 @@
 
 </head>
 
-<body style="background-color:black"s>
-	<div style="text-align: center;">
+<body style="background-color:black">
+	<div style="text-align: center; height: auto;">
 	<div style="box-sizing: border-box; display: inline-block; width: 700px; max-width: 700px; background-color: #ffffff; border: 2px solid #ffffff; 
-	border-radius: 5px;height:300px; margin: 50px auto auto;">
+	border-radius: 5px;height:330px; margin: 50px auto auto;">
 	<div style="background: #2c9986; border-radius: 5px 5px 0px 0px; padding: 25px;"><span style="font-family: verdana,arial; color: #ffffff; font-size: 1.2em;
 		font-weight:bold;">{{ state }}</span></div>
-	<div style="background: ; padding: 15px">
-	<style type="text/css" scoped>
+	<div style="padding: 15px">
+	<style type="text/css" >
 
 	td { 
 		text-align:left; 
@@ -73,6 +75,17 @@
 		font-color: #ffffff;
 
 	}
+
+    div.linkfooter{
+        text-decoration: none;
+    }
+        a:link{
+            text-decoration: none;
+
+        }
+        a:hover{
+            text-decoration: underline;
+        }
 	</style>
 
 <form method="post" action="rango/login/" name="form" target="_top">
@@ -89,7 +102,9 @@
 </form>
 <div id="footer">
 	<p><br><em>Copyrights © Supriya Sule<em></p>
+   <a href="/admin/" target="_blank" class="footer1">Sign in as admin account</a>
 </div>
+
 </div></div></div>
 
 </body>
