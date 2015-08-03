@@ -3,6 +3,7 @@
 <head>
     {% load staticfiles %}
     <link rel="icon" type="image/jpg" href="{% static "images/nationalist_congress_party_7.jpg" %}">
+    <title>Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1? />
 
     <link rel="stylesheet" type="text/css" href="css/style2.css">
@@ -1018,7 +1019,7 @@ position: relative;
     <div class="box">
 	<a href="#details/{{ complaint.id }}"><img src="{% static "images/ic_action (4).png" %}" width="25" height="25" alt="Details" z-index="10000"></a>
     <a href="#edit/{{ complaint.id }}"><img src="{% static "images/ic_action (3).png" %}" width="25" height="25" alt="Details" z-index="10000"></a>
-    <a href="#popup3"><img src="{% static "images/ic_action.png" %}" width="25" height="25" alt="Details" z-index="10000"></a>
+    <a href="#delete/{{ complaint.id }}"><img src="{% static "images/ic_action.png" %}" width="25" height="25" alt="Details" z-index="10000"></a>
 </div>
     </div>
     </td>
@@ -1090,7 +1091,7 @@ position: relative;
 	</div>
 </div>
 
-<div id="popup3" class="overlay">
+<div id="delete/{{ complaint.id }}" class="overlay">
 	<div class="popup">
 		<h5>Are you sure you want to delete this complaint ?</h5>
 
