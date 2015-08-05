@@ -11,15 +11,30 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+import os
 import dj_database_url
-#DATABASES['default'] = dj_database_url.config()
+DATABASES = {}
+DATABASE_URL = ' postgres://qbuhzxqurmmcpj:3TxkGDah60bg5K9VrWJyUI4q1b@ec2-54-83-10-210.compute-1.amazonaws.com:5432/d6se2k2i1pt86t'
+DATABASES['default'] =  dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6se2k2i1pt86t',
+        'USER': 'qbuhzxqurmmcpj',
+        'PASSWORD': '3TxkGDah60bg5K9VrWJyUI4q1b',
+        'HOST': 'ec2-54-83-10-210.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
-import os
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_PATH = os.path.join(BASE_DIR,'templates')
@@ -90,7 +105,7 @@ MEDIA_URL = '/media/'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -102,7 +117,7 @@ DATABASES = {
         #'PORT': '8080',
     }
 }
-
+"""
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
